@@ -1,0 +1,165 @@
+<
+style type ="text/css">
+
+.ui-button, button.ui-button.ui-state-default,
+	.ui-button.ui-state-default {
+	color: #fff;
+	background-color: #ff5722;
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+	border: 1px solid #ff5722;
+	color: #fff;
+}
+
+.ui-tabmenu {
+	padding: .2em .2em .2em;
+}
+
+.ui-datatable table {
+    border-collapse: inherit;
+}
+
+.ui-tabmenu .ui-tabmenu-nav{
+	background-color: #000000;
+	padding: .2em .2em .2em;
+	text-shadow: none;	
+}
+
+.ui-tabmenuitem {
+	background: #ff5722;
+}
+
+.ui-inputgroup .ui-inputgroup-addon:first-child, .ui-inputgroup .ui-inputgroup-addon-checkbox:first-child
+	{
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+}
+
+.ui-inputgroup .ui-inputgroup-addon {
+	padding: 4px;
+}
+
+.ui-inputgroup .ui-inputgroup-addon, .ui-inputgroup .ui-inputgroup-addon-checkbox
+	{
+	display: inline-block;
+	text-align: center;
+	min-width: 1.5em;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.ui-inputgroup>.ui-inputtext:not (:first-child ), .ui-inputgroup>.ui-password:not
+	(:first-child ), .ui-inputgroup>.ui-inputnumber:not (:first-child )>.ui-inputtext,
+	.ui-inputgroup>.ui-inputmask:not (:first-child ), .ui-inputgroup>.ui-calendar:not
+	(:first-child )>.ui-inputfield, .ui-inputgroup>.ui-selectonemenu:not (:first-child
+	), .ui-inputgroup>.ui-selectonebutton:not (:first-child )>.ui-button {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	border-left: 0 none;
+}
+
+.ui-inputgroup .ui-inputtext, .ui-inputgroup .ui-password {
+	padding-left: .5em;
+}
+
+.ui-fluid .ui-inputtext {
+	width: 100%;
+}
+
+.ui-fluid .ui-inputfield {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+.ui-inputfield {
+	margin: 0;
+	outline: medium none;
+	padding: 4px;
+	font-weight: normal;
+}
+
+.ui-inputfield {
+	-webkit-transition: .2s;
+	-moz-transition: .2s;
+	-o-transition: .2s;
+	transition: .2s;
+}
+
+.ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield
+	{
+	background: #fff;
+	color: #222;
+}
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+	-moz-border-radius-bottomright: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	-khtml-border-bottom-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
+	-moz-border-radius-bottomleft: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-khtml-border-bottom-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+	-moz-border-radius-topright: 3px;
+	-webkit-border-top-right-radius: 3px;
+	-khtml-border-top-right-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl {
+	-moz-border-radius-topleft: 3px;
+	-webkit-border-top-left-radius: 3px;
+	-khtml-border-top-left-radius: 3px;
+	border-top-left-radius: 3px;
+}
+
+
+.ui-widget {
+	font-family: "latoregular", "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	font-size: 1em;
+}
+
+user agent stylesheet
+input {
+	-webkit-appearance: textfield;
+	background-color: white;
+	-webkit-rtl-ordering: logical;
+	cursor: text;
+	border-width: 2px;
+	border-style: inset;
+	border-color: initial;
+	border-image: initial;
+}
+
+user agent stylesheet
+input, textarea, select, button {
+	text-rendering: auto;
+	color: initial;
+	letter-spacing: normal;
+	word-spacing: normal;
+	text-transform: none;
+	text-indent: 0px;
+	text-shadow: none;
+	display: inline-block;
+	text-align: start;
+	margin: 0em;
+	font: 400 13.3333px Arial;
+}
+
+user agent stylesheet
+input, textarea, select, button, meter, progress {
+	-webkit-writing-mode: horizontal-tb !important;
+}
+</
+style
+>

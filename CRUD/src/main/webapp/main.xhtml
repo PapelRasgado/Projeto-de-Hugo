@@ -1,0 +1,39 @@
+<HTML xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+<!-- MenuButton -->
+<!--  fazer metodos na classe tabview -->
+	<h:form>
+		<p:growl id="conta" showDetail="true" />
+
+		<p:menuButton value="Conta" style="background:#FFFF5722">
+			<p:menuitem value="Cadastro" actionListener="#{menuView.cadastro}"  
+				update="conta" icon="ui-icon-person" /> 
+			<p:menuitem value="Login" actionListener="#{menuView.login}"
+				update="conta" icon="ui-icon-unlocked" />
+		</p:menuButton>
+	</h:form>
+	
+	<!-- Tab menu  -->
+	<p:tabMenu activeIndex="#{param.i}">
+		<p:menuitem value="Home" outcome="/main.xhtml" icon="ui-icon-home">
+			<f:param name="i" value="0" />
+		</p:menuitem>
+		<p:menuitem value="Cartas" outcome="/main.xhtml" icon="ui-icon-search">
+			<f:param name="i" value="1" />
+		</p:menuitem>
+		<p:menuitem value="Jogos" outcome="/main.xhtml"
+			icon="ui-icon-document">
+			<f:param name="i" value="2" />
+		</p:menuitem>
+		<p:menuitem value="Usuarios" outcome="/main.xhtml"
+			icon="ui-icon-wrench">
+			<f:param name="i" value="3" />
+		</p:menuitem>
+	</p:tabMenu>
+</h:body>
+</HTML>
