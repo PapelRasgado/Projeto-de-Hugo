@@ -1,13 +1,16 @@
+package entity;
 import javax.persistence.*;
 
+import bean.Identificavel;
+
 @Entity
-public class Usuario {
+public class Usuario implements Identificavel {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usu_seq_gen")
 	@SequenceGenerator(name = "usu_seq_gen", sequenceName = "usu_id_seq")
 	@Column(name = "id_usu")
-	private int id;
+	private Long id;
 	
 	private String email;
 	
@@ -15,11 +18,11 @@ public class Usuario {
 	
 	private String nick;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -47,7 +50,7 @@ public class Usuario {
 		this.nick = nick;
 	}
 
-	public Usuario(int id, String email, String senha, String nick) {
+	public Usuario(Long id, String email, String senha, String nick) {
 		super();
 		this.id = id;
 		this.email = email;

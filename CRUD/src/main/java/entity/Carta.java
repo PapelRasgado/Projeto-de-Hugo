@@ -1,13 +1,16 @@
+package entity;
 import javax.persistence.*;
 
+import bean.Identificavel;
+
 @Entity
-public class Carta {
+public class Carta implements Identificavel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "carta_seq_gen")
 	@SequenceGenerator(name = "carta_seq_gen", sequenceName = "carta_id_seq")
 	@Column(name = "id_carta")
-	private int id;
+	private Long id;
 	
 	@Column(name = "id_usu_vende")
 	private int idUsuarioVende;
@@ -172,11 +175,11 @@ public class Carta {
 		return card;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

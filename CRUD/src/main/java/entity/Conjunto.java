@@ -1,3 +1,4 @@
+package entity;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -10,14 +11,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
+import bean.Identificavel;
+
 @Entity
-public class Conjunto {
+public class Conjunto implements Identificavel  {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "conjunto_seq_gen")
 	@SequenceGenerator(name = "conjunto_seq_gen", sequenceName = "conjunto_id_seq")
 	@Column(name = "id_conjunto")
-	private int id;
+	private Long id;
 	
 	@ManyToOne
 	@JoinColumn(name="id_jogo")
@@ -30,11 +33,11 @@ public class Conjunto {
 	
 	private String descricao;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -75,7 +78,7 @@ public class Conjunto {
 		return conjunt;
 	}
 
-	public Conjunto(int id, Jogo jogo, Set<Carta> cartas, String nome, String descricao) {
+	public Conjunto(Long id, Jogo jogo, Set<Carta> cartas, String nome, String descricao) {
 		super();
 		this.id = id;
 		this.jogo = jogo;

@@ -1,15 +1,18 @@
+package entity;
 import java.util.Set;
 
 import javax.persistence.*;
 
+import bean.Identificavel;
+
 @Entity
-public class Raridade {
+public class Raridade implements Identificavel {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "rar_seq_gen")
 	@SequenceGenerator(name = "rar_seq_gen", sequenceName = "rar_id_seq")
 	@Column(name = "id_raridade")
-	private int id;
+	private Long id;
 
 	@ManyToOne
 	@JoinColumn(name="id_jogo")
@@ -20,11 +23,11 @@ public class Raridade {
 	@OneToMany(mappedBy="raridade")
 	private Set<Carta> cartas;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -56,7 +59,7 @@ public class Raridade {
 
 	}
 
-	public Raridade(int id, Jogo jogo, String nome, Set<Carta> cartas) {
+	public Raridade(Long id, Jogo jogo, String nome, Set<Carta> cartas) {
 		super();
 		this.id = id;
 		this.jogo = jogo;
