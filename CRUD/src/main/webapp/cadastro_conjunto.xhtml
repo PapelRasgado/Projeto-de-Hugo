@@ -30,12 +30,7 @@
 		</p:menuitem>
 	</p:tabMenu>
 	<p:panelGrid>
-		<p:panelGrid rendered="#{conjuntoBean.edit}">
-			<h3>Editar conjunto:</h3>
-		</p:panelGrid>
-		<p:panelGrid rendered="#{!conjuntoBean.edit}">
-			<h3>Adicionar conjunto:</h3>
-		</p:panelGrid>
+		<h3>Adicionar conjunto:</h3>
 		<h:form>
 			<div class="ui-g">
 				<div class="ui-g-12">
@@ -43,7 +38,7 @@
 						<p:panelGrid columns="2">
 							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Nome:</span>
 							<span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
-							<p:inputText id="nome" value="#{conjuntoBean.conjunto.nome}" />
+							<p:inputText id="nome" value="#{conjuntoBean.entidade.nome}" />
 						</p:panelGrid>
 					</div>
 				</div>
@@ -53,9 +48,9 @@
 							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Jogo:</span>
 							<span class="ui-inputgroup-addon"><i class="fa fa-gamepad"></i></span>
 							<p:selectOneMenu id="advancedRaridade"
-								value="#{conjuntoBean.conjunto.jogo}" filter="true"
+								value="#{conjuntoBean.entidade.jogo}" filter="true"
 								filterMatchMode="contains" style="width:175px">
-								<f:selectItems value="#{jogoBean.jogos}" var="jogo"
+								<f:selectItems value="#{jogoBean.entidades}" var="jogo"
 									itemLabel="#{jogo.nome}" itemValue="#{jogo}" />
 
 								<p:column>
@@ -71,36 +66,20 @@
 							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Descrição:</span>
 							<span class="ui-inputgroup-addon"><i class="fa fa-comment"></i></span>
 							<p:inputText id="descricao"
-								value="#{conjuntoBean.conjunto.descricao}" />
+								value="#{conjuntoBean.entidade.descricao}" />
 						</p:panelGrid>
 					</div>
 				</div>
 			</div>
-			<p:panelGrid rendered="#{conjuntoBean.edit}">
-				<p>
-					<h:form>
-						<p:commandButton ajax="false" value="Salvar"
-							actionListener="#{conjuntoBean.salvar()}" />
-						<p:commandButton ajax="false" value="Cancelar"
-							action="#{conjuntoBean.cancel()}" />
-					</h:form>
-				</p>
-			</p:panelGrid>
-			<p:panelGrid rendered="#{!conjuntoBean.edit}">
-				<p>
-					<h:form>
-						<p:commandButton action="#{conjuntoBean.salvar()}" ajax="false"
-							value="Salvar"
-							style="border-top-left-radius: 8px; border-bottom-left-radius: 8px; border-top-right-radius: 
-				8px; border-bottom-right-radius: 8px" />
-					</h:form>
-				</p>
-			</p:panelGrid>
+			<p:commandButton class="btn" ajax="false" value="Salvar"
+				actionListener="#{conjuntoBean.save()}" />
+			<p:commandButton class="btn" ajax="false" value="Cancelar"
+				action="#{conjuntoBean.limpar()}" />
 		</h:form>
 	</p:panelGrid>
 
 	<p:dataTable id="dataTableconjunto" var="conjunt"
-		value="#{conjuntoBean.conjuntos}">
+		value="#{conjuntoBean.entidades}">
 		<p:column headerText="Id">
 			<h:outputText value="#{conjunt.id}" />
 		</p:column>
@@ -121,7 +100,7 @@
 		</p:column>
 		<p:column headerText="Editar">
 			<h:form>
-				<p:commandButton action="#{conjuntoBean.editar(conjunt)}"
+				<p:commandButton action="#{conjuntoBean.editar(conjunt.id)}"
 					ajax="false" value="Editar" />
 			</h:form>
 		</p:column>

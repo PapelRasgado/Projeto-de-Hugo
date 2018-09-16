@@ -30,12 +30,7 @@
 		</p:menuitem>
 	</p:tabMenu>
 	<p:panelGrid>
-		<p:panelGrid rendered="#{raridadeBean.edit}">
-			<h3>Editar raridade:</h3>
-		</p:panelGrid>
-		<p:panelGrid rendered="#{!raridadeBean.edit}">
-			<h3>Adicionar raridade:</h3>
-		</p:panelGrid>
+		<h3>Adicionar raridade:</h3>
 		<h:form>
 			<div class="ui-g">
 				<div class="ui-g-12">
@@ -43,7 +38,7 @@
 						<p:panelGrid columns="2">
 							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Nome:</span>
 							<span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
-							<p:inputText id="nome" value="#{raridadeBean.raridade.nome}" />
+							<p:inputText id="nome" value="#{raridadeBean.entidade.nome}" />
 						</p:panelGrid>
 					</div>
 				</div>
@@ -53,9 +48,9 @@
 							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Jogo:</span>
 							<span class="ui-inputgroup-addon"><i class="fa fa-gamepad"></i></span>
 							<p:selectOneMenu id="advancedRaridade"
-								value="#{raridadeBean.raridade.jogo}" filter="true"
-								filterMatchMode="contains"  style="width:175px">
-								<f:selectItems value="#{jogoBean.jogos}" var="jogo"
+								value="#{raridadeBean.entidade.jogo}" filter="true"
+								filterMatchMode="contains" style="width:175px">
+								<f:selectItems value="#{jogoBean.entidades}" var="jogo"
 									itemLabel="#{jogo.nome}" itemValue="#{jogo}" />
 
 								<p:column>
@@ -66,31 +61,15 @@
 					</div>
 				</div>
 			</div>
-			<p:panelGrid rendered="#{raridadeBean.edit}">
-				<p>
-					<h:form>
-						<p:commandButton ajax="false" value="Salvar"
-							actionListener="#{raridadeBean.salvar()}" />
-						<p:commandButton ajax="false" value="Cancelar"
-							action="#{raridadeBean.cancel()}" />
-					</h:form>
-				</p>
-			</p:panelGrid>
-			<p:panelGrid rendered="#{!raridadeBean.edit}">
-				<p>
-					<h:form>
-						<p:commandButton action="#{raridadeBean.salvar()}" ajax="false"
-							value="Salvar"
-							style="border-top-left-radius: 8px; border-bottom-left-radius: 8px; border-top-right-radius: 
-				8px; border-bottom-right-radius: 8px" />
-					</h:form>
-				</p>
-			</p:panelGrid>
+			<p:commandButton class="btn" ajax="false" value="Salvar"
+				actionListener="#{raridadeBean.save()}" />
+			<p:commandButton class="btn" ajax="false" value="Cancelar"
+				action="#{raridadeBean.limpar()}" />
 		</h:form>
 	</p:panelGrid>
 
 	<p:dataTable id="dataTableRaridade" var="raridad"
-		value="#{raridadeBean.raridades}">
+		value="#{raridadeBean.entidades}">
 		<p:column headerText="Id">
 			<h:outputText value="#{raridad.id}" />
 		</p:column>
@@ -108,7 +87,7 @@
 		</p:column>
 		<p:column headerText="Editar">
 			<h:form>
-				<p:commandButton action="#{raridadeBean.editar(raridad)}"
+				<p:commandButton action="#{raridadeBean.editar(raridad.id)}"
 					ajax="false" value="Editar" />
 			</h:form>
 		</p:column>

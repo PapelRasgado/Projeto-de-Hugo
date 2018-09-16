@@ -31,20 +31,16 @@
 		</p:menuitem>
 	</p:tabMenu>
 	<p:panelGrid>
-		<p:panelGrid rendered="#{usuarioBean.edit}">
-			<h3>Editar usuario:</h3>
-		</p:panelGrid>
-		<p:panelGrid rendered="#{!usuarioBean.edit}">
-			<h3>Adicionar usuario:</h3>
-		</p:panelGrid>
+		<h3>Adicionar usuario:</h3>
 		<h:form>
 			<div class="ui-g">
 				<div class="ui-g-12">
 					<div class="ui-inputgroup">
 						<p:panelGrid columns="2">
 							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Email:</span>
-							<span class="ui-inputgroup-addon"><i class="fa fa-envelope"></i></span>
-							<h:inputText id="email" value="#{usuarioBean.usuario.email}" />
+							<span class="ui-inputgroup-addon"><i
+								class="fa fa-envelope"></i></span>
+							<h:inputText id="email" value="#{usuarioBean.entidade.email}" />
 						</p:panelGrid>
 					</div>
 				</div>
@@ -54,7 +50,7 @@
 							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Senha:</span>
 							<span class="ui-inputgroup-addon"><i class="fa fa-key"></i></span>
 							<h:inputText type="password" id="senha"
-								value="#{usuarioBean.usuario.senha}" />
+								value="#{usuarioBean.entidade.senha}" />
 						</p:panelGrid>
 					</div>
 				</div>
@@ -63,40 +59,20 @@
 						<p:panelGrid columns="2">
 							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Nick:</span>
 							<span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
-							<h:inputText id="nick"
-								value="#{usuarioBean.usuario.nick}" />
+							<h:inputText id="nick" value="#{usuarioBean.entidade.nick}" />
 						</p:panelGrid>
 					</div>
 				</div>
 			</div>
-			<p:panelGrid rendered="#{usuarioBean.edit}">
-				<p>
-					<h:form>
-						<p:commandButton ajax="false" value="Salvar"
-							actionListener="#{usuarioBean.salvar()}"
-							style=" border-top-left-radius: 8px; border-bottom-left-radius: 8px; border-top-right-radius: 
-				8px; border-bottom-right-radius: 8px" />
-						<p:commandButton ajax="false" value="Cancelar"
-							action="#{usuarioBean.cancel()}"
-							style=" border-top-left-radius: 8px; border-bottom-left-radius: 8px; border-top-right-radius: 
-				8px; border-bottom-right-radius: 8px" />
-					</h:form>
-				</p>
-			</p:panelGrid>
-			<p:panelGrid rendered="#{!usuarioBean.edit}">
-				<p>
-					<h:form>
-						<p:commandButton action="#{usuarioBean.salvar()}" ajax="false"
-							value="Salvar"
-							style=" border-top-left-radius: 8px; border-bottom-left-radius: 8px; border-top-right-radius: 
-				8px; border-bottom-right-radius: 8px" />
-					</h:form>
-				</p>
-			</p:panelGrid>
+			<p:commandButton class="btn" ajax="false" value="Salvar"
+				actionListener="#{usuarioBean.save()}"/>
+			<p:commandButton class="btn" ajax="false" value="Cancelar"
+				action="#{usuarioBean.limpar()}" />
 		</h:form>
 	</p:panelGrid>
 
-	<p:dataTable id="dataTableCarta" var="usu" value="#{usuarioBean.usuarios}">
+	<p:dataTable id="dataTableCarta" var="usu"
+		value="#{usuarioBean.entidades}">
 		<p:column headerText="Id">
 			<h:outputText value="#{usu.id}" />
 		</p:column>
@@ -117,7 +93,7 @@
 		</p:column>
 		<p:column headerText="Editar">
 			<h:form>
-				<p:commandButton action="#{usuarioBean.editar(usu)}" ajax="false"
+				<p:commandButton action="#{usuarioBean.editar(usu.id)}" ajax="false"
 					value="Editar" />
 			</h:form>
 		</p:column>

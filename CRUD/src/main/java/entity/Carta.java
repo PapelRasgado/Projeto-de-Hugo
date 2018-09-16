@@ -12,11 +12,13 @@ public class Carta implements Identificavel {
 	@Column(name = "id_carta")
 	private Long id;
 	
-	@Column(name = "id_usu_vende")
-	private int idUsuarioVende;
+	@ManyToOne
+	@JoinColumn(name="id_usu_vende")
+	private Usuario idUsuarioVende;
 
-	@Column(name = "id_usu_compra")
-	private int idUsuarioCompra;
+	@ManyToOne
+	@JoinColumn(name="id_usu_compra")
+	private Usuario idUsuarioCompra;
 	
 	private String nome;
 	
@@ -120,25 +122,25 @@ public class Carta implements Identificavel {
 		
 	}
 
-	public int getIdUsuarioVende() {
+	public Usuario getIdUsuarioVende() {
 		return idUsuarioVende;
 	}
 
-	public void setIdUsuarioVende(int idUsuarioVende) {
+	public void setIdUsuarioVende(Usuario idUsuarioVende) {
 		this.idUsuarioVende = idUsuarioVende;
 	}
 
-	public int getIdUsuarioCompra() {
+	public Usuario getIdUsuarioCompra() {
 		return idUsuarioCompra;
 	}
 
-	public void setIdUsuarioCompra(int idUsuarioCompra) {
+	public void setIdUsuarioCompra(Usuario idUsuarioCompra) {
 		this.idUsuarioCompra = idUsuarioCompra;
 	}
 	
 	
 
-	public Carta(int idUsuarioVende, int idUsuarioCompra, String nome, Conjunto conjunto, Raridade raridade,
+	public Carta(Usuario idUsuarioVende, Usuario idUsuarioCompra, String nome, Conjunto conjunto, Raridade raridade,
 			Jogo jogo, String imagem, String descricao, Integer ataque, Integer defesa, Integer custo, Integer preco) {
 		super();
 		this.idUsuarioVende = idUsuarioVende;

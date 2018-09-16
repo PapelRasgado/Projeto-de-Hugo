@@ -31,12 +31,7 @@
 		</p:menuitem>
 	</p:tabMenu>
 	<p:panelGrid>
-		<p:panelGrid rendered="#{jogoBean.edit}">
-			<h3>Editar jogo:</h3>
-		</p:panelGrid>
-		<p:panelGrid rendered="#{!jogoBean.edit}">
-			<h3>Adicionar jogo:</h3>
-		</p:panelGrid>
+		<h3>Adicionar jogo:</h3>
 		<h:form>
 			<div class="ui-g">
 				<div class="ui-g-12">
@@ -44,7 +39,7 @@
 						<p:panelGrid columns="2">
 							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Nome:</span>
 							<span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
-							<h:inputText id="nome" value="#{jogoBean.jogo.nome}" />
+							<h:inputText id="nome" value="#{jogoBean.entidade.nome}" />
 						</p:panelGrid>
 					</div>
 				</div>
@@ -53,35 +48,19 @@
 						<p:panelGrid columns="2">
 							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Descrição:</span>
 							<span class="ui-inputgroup-addon"><i class="fa fa-comment"></i></span>
-							<h:inputText id="descricao" value="#{jogoBean.jogo.descricao}" />
+							<h:inputText id="descricao" value="#{jogoBean.entidade.descricao}" />
 						</p:panelGrid>
 					</div>
 				</div>
 			</div>
-			<p:panelGrid rendered="#{jogoBean.edit}">
-				<p>
-					<h:form>
-						<p:commandButton ajax="false" value="Salvar"
-							actionListener="#{jogoBean.salvar()}" />
-						<p:commandButton ajax="false" value="Cancelar"
-							action="#{jogoBean.cancel()}" />
-					</h:form>
-				</p>
-			</p:panelGrid>
-			<p:panelGrid rendered="#{!jogoBean.edit}">
-				<p>
-					<h:form>
-						<p:commandButton action="#{jogoBean.salvar()}" ajax="false"
-							value="Salvar"
-							style=" border-top-left-radius: 8px; border-bottom-left-radius: 8px; border-top-right-radius: 
-				8px; border-bottom-right-radius: 8px" />
-					</h:form>
-				</p>
-			</p:panelGrid>
+			<p:commandButton class="btn" ajax="false" value="Salvar"
+				actionListener="#{jogoBean.save()}" />
+			<p:commandButton class="btn" ajax="false" value="Cancelar"
+				action="#{jogoBean.limpar()}" />
 		</h:form>
 	</p:panelGrid>
 
-	<p:dataTable id="dataTableCarta" var="jog" value="#{jogoBean.jogos}">
+	<p:dataTable id="dataTableCarta" var="jog" value="#{jogoBean.entidades}">
 		<p:column headerText="Id">
 			<h:outputText value="#{jog.id}" />
 		</p:column>
@@ -99,7 +78,7 @@
 		</p:column>
 		<p:column headerText="Editar">
 			<h:form>
-				<p:commandButton action="#{jogoBean.editar(jog)}" ajax="false"
+				<p:commandButton action="#{jogoBean.editar(jog.id)}" ajax="false"
 					value="Editar" />
 			</h:form>
 		</p:column>
