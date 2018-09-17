@@ -1,15 +1,23 @@
 <
 style type ="text/css">
 
+.titulo {
+	color: #9fda58;
+}
+
+.body {
+	background: #4A4A4A;
+}
+
 .ui-button, button.ui-button.ui-state-default,
 	.ui-button.ui-state-default {
 	color: #fff;
-	background-color: #ff5722;
+	background-color: #9fda58;
 	border-top-left-radius: 8px;
 	border-bottom-left-radius: 8px;
 	border-top-right-radius: 8px;
 	border-bottom-right-radius: 8px;
-	border: 1px solid #ff5722;
+	border: 1px solid #9fda58;
 	color: #fff;
 }
 
