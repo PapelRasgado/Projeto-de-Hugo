@@ -29,208 +29,207 @@
 			<f:param name="i" value="4" />
 		</p:menuitem>
 	</p:tabMenu>
-	<p:panelGrid>
-		<h3 class="titulo">Adicionar carta:</h3>
-		<h:form>
-			<div class="ui-g">
-				<div class="ui-g-12">
-					<div class="ui-inputgroup">
-						<p:panelGrid columns="2">
-							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Nome:</span>
-							<span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
-							<p:inputText id="nome" value="#{cartaBean.entidade.nome}" />
-						</p:panelGrid>
+	<form>
+		<p:panelGrid>
+			<h3 class="titulo">Adicionar carta:</h3>
+				<div class="ui-g">
+					<div class="ui-g-12">
+						<div class="ui-inputgroup">
+							<p:panelGrid columns="2">
+								<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Nome:</span>
+								<span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+								<p:inputText id="nome" value="#{cartaBean.entidade.nome}" />
+							</p:panelGrid>
+						</div>
 					</div>
-				</div>
-				<div class="ui-g-12">
-					<div class="ui-inputgroup">
-						<p:panelGrid columns="2">
-							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Jogo:</span>
-							<span class="ui-inputgroup-addon"><i class="fa fa-gamepad"></i></span>
-							<p:selectOneMenu id="advancedJogo"
-								value="#{cartaBean.entidade.jogo}" filter="true"
-								filterMatchMode="contains" lazy="true" style="width:175px">
-								<f:selectItems value="#{jogoBean.entidades}" var="jogo"
-									itemLabel="#{jogo.nome}" itemValue="#{jogo}" />
-								<p:column>
-									<h:outputText value="#{jogo.nome}" />
-								</p:column>
-							</p:selectOneMenu>
-						</p:panelGrid>
+					<div class="ui-g-12">
+						<div class="ui-inputgroup">
+							<p:panelGrid columns="2">
+								<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Jogo:</span>
+								<span class="ui-inputgroup-addon"><i
+									class="fa fa-gamepad"></i></span>
+								<p:selectOneMenu id="advancedJogo" value="#{cartaBean.jogoId}"
+									filter="true" filterMatchMode="contains" lazy="true"
+									style="width:175px">
+									<f:selectItems value="#{jogoBean.entidades}" var="jogo"
+										itemLabel="#{jogo.nome}" itemValue="#{jogo.id}" />
+									<p:column>
+										<h:outputText value="#{jogo.nome}" />
+									</p:column>
+								</p:selectOneMenu>
+							</p:panelGrid>
+						</div>
 					</div>
-				</div>
-				<div class="ui-g-12">
-					<div class="ui-inputgroup">
-						<p:panelGrid columns="2">
-							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Conjunto:</span>
-							<span class="ui-inputgroup-addon"><i class="fa fa-tasks"></i></span>
-							<p:selectOneMenu id="advancedConjunto"
-								value="#{cartaBean.entidade.conjunto}" filter="true"
-								filterMatchMode="contains" style="width:175px">
-								<f:selectItems value="#{conjuntoBean.entidades}" var="conjunto"
-									itemLabel="#{conjunto.nome}" itemValue="#{conjunto}" />
+					<div class="ui-g-12">
+						<div class="ui-inputgroup">
+							<p:panelGrid columns="2">
+								<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Conjunto:</span>
+								<span class="ui-inputgroup-addon"><i class="fa fa-tasks"></i></span>
+								<p:selectOneMenu id="advancedConjunto"
+									value="#{cartaBean.conjId}" filter="true"
+									filterMatchMode="contains" style="width:175px">
+									<f:selectItems value="#{conjuntoBean.entidades}" var="conjunto"
+										itemLabel="#{conjunto.nome}" itemValue="#{conjunto.id}" />
 
-								<p:column>
-									<h:outputText value="#{conjunto.nome}" />
-								</p:column>
-							</p:selectOneMenu>
-						</p:panelGrid>
+									<p:column>
+										<h:outputText value="#{conjunto.nome}" />
+									</p:column>
+								</p:selectOneMenu>
+							</p:panelGrid>
+						</div>
 					</div>
-				</div>
 
-				<div class="ui-g-12">
-					<div class="ui-inputgroup">
-						<p:panelGrid columns="2">
-							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Dono:</span>
-							<span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
-							<p:selectOneMenu id="advancedUsuario"
-								value="#{cartaBean.entidade.idUsuarioVende}" filter="true"
-								filterMatchMode="contains" style="width:175px">
-								<f:selectItems value="#{usuarioBean.entidades}" var="usuario"
-									itemLabel="#{usuario.nick}" itemValue="#{usuario}" />
+					<div class="ui-g-12">
+						<div class="ui-inputgroup">
+							<p:panelGrid columns="2">
+								<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Dono:</span>
+								<span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+								<p:selectOneMenu id="advancedUsuario" value="#{cartaBean.usuId}"
+									filter="true" filterMatchMode="contains" style="width:175px">
+									<f:selectItems value="#{usuarioBean.entidades}" var="usuario"
+										itemLabel="#{usuario.nick}" itemValue="#{usuario.id}" />
 
-								<p:column>
-									<h:outputText value="#{usuario.nick}" />
-								</p:column>
-							</p:selectOneMenu>
-						</p:panelGrid>
+									<p:column>
+										<h:outputText value="#{usuario.nick}" />
+									</p:column>
+								</p:selectOneMenu>
+							</p:panelGrid>
+						</div>
 					</div>
-				</div>
 
-				<div class="ui-g-12">
-					<div class="ui-inputgroup">
-						<p:panelGrid columns="2">
-							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Raridade:</span>
-							<span class="ui-inputgroup-addon"><i class="fa fa-diamond"></i></span>
-							<p:selectOneMenu id="advancedRaridade"
-								value="#{cartaBean.entidade.raridade}" filter="true"
-								filterMatchMode="contains" style="width:175px">
-								<f:selectItems value="#{raridadeBean.entidades}" var="raridade"
-									itemLabel="#{raridade.nome}" itemValue="#{raridade}" />
+					<div class="ui-g-12">
+						<div class="ui-inputgroup">
+							<p:panelGrid columns="2">
+								<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Raridade:</span>
+								<span class="ui-inputgroup-addon"><i
+									class="fa fa-diamond"></i></span>
+								<p:selectOneMenu id="advancedRaridade"
+									value="#{cartaBean.rarService}" filter="true"
+									filterMatchMode="contains" style="width:175px">
+									<f:selectItems value="#{raridadeBean.entidades}" var="raridade"
+										itemLabel="#{raridade.nome}" itemValue="#{raridade.id}" />
 
-								<p:column>
-									<h:outputText value="#{raridade.nome}" />
-								</p:column>
-							</p:selectOneMenu>
-						</p:panelGrid>
+									<p:column>
+										<h:outputText value="#{raridade.nome}" />
+									</p:column>
+								</p:selectOneMenu>
+							</p:panelGrid>
+						</div>
 					</div>
-				</div>
-				<div class="ui-g-12">
-					<div class="ui-inputgroup">
-						<p:panelGrid columns="2">
-							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Imagem:</span>
-							<span class="ui-inputgroup-addon"><i
-								class="fa fa-picture-o"></i></span>
-							<p:inputText id="imagem" value="#{cartaBean.entidade.imagem}" />
-						</p:panelGrid>
+					<div class="ui-g-12">
+						<div class="ui-inputgroup">
+							<p:panelGrid columns="2">
+								<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Imagem:</span>
+								<span class="ui-inputgroup-addon"><i
+									class="fa fa-picture-o"></i></span>
+								<p:inputText id="imagem" value="#{cartaBean.entidade.imagem}" />
+							</p:panelGrid>
+						</div>
 					</div>
-				</div>
-				<div class="ui-g-12">
-					<div class="ui-inputgroup">
-						<p:panelGrid columns="2">
-							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Descrição:</span>
-							<span class="ui-inputgroup-addon"><i class="fa fa-comment"></i></span>
-							<p:inputText id="descricao"
-								value="#{cartaBean.entidade.descricao}" />
-						</p:panelGrid>
+					<div class="ui-g-12">
+						<div class="ui-inputgroup">
+							<p:panelGrid columns="2">
+								<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Descrição:</span>
+								<span class="ui-inputgroup-addon"><i
+									class="fa fa-comment"></i></span>
+								<p:inputText id="descricao"
+									value="#{cartaBean.entidade.descricao}" />
+							</p:panelGrid>
+						</div>
 					</div>
-				</div>
-				<div class="ui-g-12">
-					<div class="ui-inputgroup">
-						<p:panelGrid columns="2">
-							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Ataque:</span>
-							<span class="ui-inputgroup-addon"><i
-								class="fa fa-fighter-jet"></i></span>
-							<p:inputText id="ataque" value="#{cartaBean.entidade.ataque}" />
-						</p:panelGrid>
+					<div class="ui-g-12">
+						<div class="ui-inputgroup">
+							<p:panelGrid columns="2">
+								<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Ataque:</span>
+								<span class="ui-inputgroup-addon"><i
+									class="fa fa-fighter-jet"></i></span>
+								<p:inputText id="ataque" value="#{cartaBean.entidade.ataque}" />
+							</p:panelGrid>
+						</div>
 					</div>
-				</div>
-				<div class="ui-g-12">
-					<div class="ui-inputgroup">
-						<p:panelGrid columns="2">
-							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Defesa:</span>
-							<span class="ui-inputgroup-addon"><i class="fa fa-shield"></i></span>
-							<p:inputText id="defesa" value="#{cartaBean.entidade.defesa}" />
-						</p:panelGrid>
+					<div class="ui-g-12">
+						<div class="ui-inputgroup">
+							<p:panelGrid columns="2">
+								<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Defesa:</span>
+								<span class="ui-inputgroup-addon"><i class="fa fa-shield"></i></span>
+								<p:inputText id="defesa" value="#{cartaBean.entidade.defesa}" />
+							</p:panelGrid>
+						</div>
 					</div>
-				</div>
-				<div class="ui-g-12">
-					<div class="ui-inputgroup">
-						<p:panelGrid columns="2">
-							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Custo:</span>
-							<span class="ui-inputgroup-addon"><i class="fa fa-star"></i></span>
-							<p:inputText id="custo" value="#{cartaBean.entidade.custo}" />
-						</p:panelGrid>
+					<div class="ui-g-12">
+						<div class="ui-inputgroup">
+							<p:panelGrid columns="2">
+								<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Custo:</span>
+								<span class="ui-inputgroup-addon"><i class="fa fa-star"></i></span>
+								<p:inputText id="custo" value="#{cartaBean.entidade.custo}" />
+							</p:panelGrid>
+						</div>
 					</div>
-				</div>
-				<div class="ui-g-12">
-					<div class="ui-inputgroup">
-						<p:panelGrid columns="2">
-							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Preço:</span>
-							<span class="ui-inputgroup-addon"><i class="fa fa-money"></i></span>
-							<p:inputText id="preco" value="#{cartaBean.entidade.preco}" />
-						</p:panelGrid>
+					<div class="ui-g-12">
+						<div class="ui-inputgroup">
+							<p:panelGrid columns="2">
+								<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Preço:</span>
+								<span class="ui-inputgroup-addon"><i class="fa fa-money"></i></span>
+								<p:inputText id="preco" value="#{cartaBean.entidade.preco}" />
+							</p:panelGrid>
+						</div>
 					</div>
-				</div>
 
-			</div>
-			<p:keyFilter for="ataque" mask="num" />
-			<p:keyFilter for="defesa" mask="num" />
-			<p:keyFilter for="custo" mask="num" />
-			<p:commandButton class="btn" ajax="false" value="Salvar"
-				actionListener="#{cartaBean.save()}" />
-			<p:commandButton class="btn" ajax="false" value="Cancelar"
-				action="#{cartaBean.limpar()}" />
-		</h:form>
-	</p:panelGrid>
+				</div>
+				<p:keyFilter for="ataque" mask="num" />
+				<p:keyFilter for="defesa" mask="num" />
+				<p:keyFilter for="custo" mask="num" />
+				<p:commandButton class="btn" ajax="false" value="Salvar"
+					actionListener="#{cartaBean.save()}" />
+				<p:commandButton class="btn" ajax="false" value="Cancelar"
+					action="#{cartaBean.limpar()}" />
+		</p:panelGrid>
 
-	<p:dataTable id="dataTableCarta" var="card" value="#{cartaBean.entidades}">
-		<p:column headerText="Id">
-			<h:outputText value="#{card.id}" />
-		</p:column>
-		<p:column headerText="Nome">
-			<h:outputText value="#{card.nome}" />
-		</p:column>
-		<p:column headerText="Jogo">
-			<h:outputText value="#{card.jogo}" />
-		</p:column>
-		<p:column headerText="Conjunto">
-			<h:outputText value="#{card.conjunto}" />
-		</p:column>
-		<p:column headerText="Raridade">
-			<h:outputText value="#{card.raridade}" />
-		</p:column>
-		<p:column headerText="Imagem">
-			<h:outputText value="#{card.imagem}" />
-		</p:column>
-		<p:column headerText="Descrição">
-			<h:outputText value="#{card.descricao}" />
-		</p:column>
-		<p:column headerText="Ataque">
-			<h:outputText value="#{card.ataque}" />
-		</p:column>
-		<p:column headerText="Defesa">
-			<h:outputText value="#{card.defesa}" />
-		</p:column>
-		<p:column headerText="Custo">
-			<h:outputText value="#{card.custo}" />
-		</p:column>
-		<p:column headerText="Preço">
-			<h:outputText value="#{card.preco}" />
-		</p:column>
-		<p:column headerText="Remover">
-			<h:form>
-				<p:commandButton action="#{cartaBean.remove(card)}" ajax="false"
-					value="Remover" />
-			</h:form>
-		</p:column>
-		<p:column headerText="Editar">
-			<h:form>
-				<p:commandButton action="#{cartaBean.editar(card.id)}" ajax="false"
-					value="Editar" />
-			</h:form>
-		</p:column>
+		<p:dataTable id="dataTableCarta" var="card"
+			value="#{cartaBean.entidades}">
+			<p:column headerText="Id">
+				<h:outputText value="#{card.id}" />
+			</p:column>
+			<p:column headerText="Nome">
+				<h:outputText value="#{card.nome}" />
+			</p:column>
+			<p:column headerText="Jogo">
+				<h:outputText value="#{card.jogo}" />
+			</p:column>
+			<p:column headerText="Conjunto">
+				<h:outputText value="#{card.conjunto}" />
+			</p:column>
+			<p:column headerText="Raridade">
+				<h:outputText value="#{card.raridade}" />
+			</p:column>
+			<p:column headerText="Imagem">
+				<h:outputText value="#{card.imagem}" />
+			</p:column>
+			<p:column headerText="Descrição">
+				<h:outputText value="#{card.descricao}" />
+			</p:column>
+			<p:column headerText="Ataque">
+				<h:outputText value="#{card.ataque}" />
+			</p:column>
+			<p:column headerText="Defesa">
+				<h:outputText value="#{card.defesa}" />
+			</p:column>
+			<p:column headerText="Custo">
+				<h:outputText value="#{card.custo}" />
+			</p:column>
+			<p:column headerText="Preço">
+				<h:outputText value="#{card.preco}" />
+			</p:column>
+			<p:column headerText="Remover">
+					<p:commandButton action="#{cartaBean.remove(card)}" ajax="false"
+						value="Remover" />
+			</p:column>
+			<p:column headerText="Editar">
+					<p:commandButton action="#{cartaBean.editar(card.id)}" ajax="false"
+						value="Editar" />
+			</p:column>
 
-	</p:dataTable>
+		</p:dataTable>
+	</form>
 </h:body>
 </HTML>

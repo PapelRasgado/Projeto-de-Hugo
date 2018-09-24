@@ -29,9 +29,9 @@
 			<f:param name="i" value="4" />
 		</p:menuitem>
 	</p:tabMenu>
-	<p:panelGrid>
-		<h3 class="titulo" >Adicionar conjunto:</h3>
-		<h:form>
+	<form>
+		<p:panelGrid>
+			<h3 class="titulo">Adicionar conjunto:</h3>
 			<div class="ui-g">
 				<div class="ui-g-12">
 					<div class="ui-inputgroup">
@@ -48,10 +48,10 @@
 							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Jogo:</span>
 							<span class="ui-inputgroup-addon"><i class="fa fa-gamepad"></i></span>
 							<p:selectOneMenu id="advancedRaridade"
-								value="#{conjuntoBean.entidade.jogo}" filter="true"
+								value="#{conjuntoBean.jogoId}" filter="true"
 								filterMatchMode="contains" style="width:175px">
 								<f:selectItems value="#{jogoBean.entidades}" var="jogo"
-									itemLabel="#{jogo.nome}" itemValue="#{jogo}" />
+									itemLabel="#{jogo.nome}" itemValue="#{jogo.id}" />
 
 								<p:column>
 									<h:outputText value="#{jogo.nome}" />
@@ -75,36 +75,31 @@
 				actionListener="#{conjuntoBean.save()}" />
 			<p:commandButton class="btn" ajax="false" value="Cancelar"
 				action="#{conjuntoBean.limpar()}" />
-		</h:form>
-	</p:panelGrid>
+		</p:panelGrid>
 
-	<p:dataTable id="dataTableconjunto" var="conjunt"
-		value="#{conjuntoBean.entidades}">
-		<p:column headerText="Id">
-			<h:outputText value="#{conjunt.id}" />
-		</p:column>
-		<p:column headerText="Nome">
-			<h:outputText value="#{conjunt.nome}" />
-		</p:column>
-		<p:column headerText="Jogo">
-			<h:outputText value="#{conjunt.jogo}" />
-		</p:column>
-		<p:column headerText="Descrição">
-			<h:outputText value="#{conjunt.descricao}" />
-		</p:column>
-		<p:column headerText="Remover">
-			<h:form>
+		<p:dataTable id="dataTableconjunto" var="conjunt"
+			value="#{conjuntoBean.entidades}">
+			<p:column headerText="Id">
+				<h:outputText value="#{conjunt.id}" />
+			</p:column>
+			<p:column headerText="Nome">
+				<h:outputText value="#{conjunt.nome}" />
+			</p:column>
+			<p:column headerText="Jogo">
+				<h:outputText value="#{conjunt.jogo.nome}" />
+			</p:column>
+			<p:column headerText="Descrição">
+				<h:outputText value="#{conjunt.descricao}" />
+			</p:column>
+			<p:column headerText="Remover">
 				<p:commandButton action="#{conjuntoBean.remove(conjunt)}"
 					ajax="false" value="Remover" />
-			</h:form>
-		</p:column>
-		<p:column headerText="Editar">
-			<h:form>
+			</p:column>
+			<p:column headerText="Editar">
 				<p:commandButton action="#{conjuntoBean.editar(conjunt.id)}"
 					ajax="false" value="Editar" />
-			</h:form>
-		</p:column>
-
-	</p:dataTable>
+			</p:column>
+		</p:dataTable>
+	</form>
 </h:body>
 </HTML>

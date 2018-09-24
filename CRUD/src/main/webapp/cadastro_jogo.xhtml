@@ -30,9 +30,9 @@
 			<f:param name="i" value="4" />
 		</p:menuitem>
 	</p:tabMenu>
+	<h:form>
 	<p:panelGrid>
 		<h3 class="titulo" >Adicionar jogo:</h3>
-		<h:form>
 			<div class="ui-g">
 				<div class="ui-g-12">
 					<div class="ui-inputgroup">
@@ -57,7 +57,6 @@
 				actionListener="#{jogoBean.save()}" />
 			<p:commandButton class="btn" ajax="false" value="Cancelar"
 				action="#{jogoBean.limpar()}" />
-		</h:form>
 	</p:panelGrid>
 
 	<p:dataTable id="dataTableCarta" var="jog" value="#{jogoBean.entidades}">
@@ -71,18 +70,15 @@
 			<h:outputText value="#{jog.descricao}" />
 		</p:column>
 		<p:column headerText="Remover">
-			<h:form>
 				<p:commandButton action="#{jogoBean.remove(jog)}" ajax="false"
 					value="Remover" />
-			</h:form>
 		</p:column>
 		<p:column headerText="Editar">
-			<h:form>
 				<p:commandButton action="#{jogoBean.editar(jog.id)}" ajax="false"
 					value="Editar" />
-			</h:form>
 		</p:column>
 
 	</p:dataTable>
+	</h:form>
 </h:body>
 </HTML>

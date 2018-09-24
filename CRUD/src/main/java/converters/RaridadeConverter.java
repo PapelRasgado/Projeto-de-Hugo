@@ -6,7 +6,6 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
-import bean.Identificavel;
 import dao.RaridadDAO;
 import entity.Raridade;
 
@@ -23,7 +22,7 @@ public class RaridadeConverter implements Converter{
 
 	@Override
 	public String getAsString(FacesContext arg0, UIComponent arg1, Object entidade) {
-		return ((Identificavel)entidade).getId().toString();
+		return entidade.toString();
 	}
 
 	

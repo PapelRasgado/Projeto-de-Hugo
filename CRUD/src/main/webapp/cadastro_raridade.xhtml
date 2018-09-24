@@ -29,9 +29,9 @@
 			<f:param name="i" value="4" />
 		</p:menuitem>
 	</p:tabMenu>
-	<p:panelGrid>
-		<h3 class="titulo" >Adicionar raridade:</h3>
-		<h:form>
+	<form>
+		<p:panelGrid>
+			<h3 class="titulo">Adicionar raridade:</h3>
 			<div class="ui-g">
 				<div class="ui-g-12">
 					<div class="ui-inputgroup">
@@ -48,10 +48,10 @@
 							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Jogo:</span>
 							<span class="ui-inputgroup-addon"><i class="fa fa-gamepad"></i></span>
 							<p:selectOneMenu id="advancedRaridade"
-								value="#{raridadeBean.entidade.jogo}" filter="true"
+								value="#{raridadeBean.jogoId}" filter="true"
 								filterMatchMode="contains" style="width:175px">
 								<f:selectItems value="#{jogoBean.entidades}" var="jogo"
-									itemLabel="#{jogo.nome}" itemValue="#{jogo}" />
+									itemLabel="#{jogo.nome}" itemValue="#{jogo.id}" />
 
 								<p:column>
 									<h:outputText value="#{jogo.nome}" />
@@ -65,33 +65,28 @@
 				actionListener="#{raridadeBean.save()}" />
 			<p:commandButton class="btn" ajax="false" value="Cancelar"
 				action="#{raridadeBean.limpar()}" />
-		</h:form>
-	</p:panelGrid>
+		</p:panelGrid>
 
-	<p:dataTable id="dataTableRaridade" var="raridad"
-		value="#{raridadeBean.entidades}">
-		<p:column headerText="Id">
-			<h:outputText value="#{raridad.id}" />
-		</p:column>
-		<p:column headerText="Nome">
-			<h:outputText value="#{raridad.nome}" />
-		</p:column>
-		<p:column headerText="Jogo">
-			<h:outputText value="#{raridad.jogo}" />
-		</p:column>
-		<p:column headerText="Remover">
-			<h:form>
+		<p:dataTable id="dataTableRaridade" var="raridad"
+			value="#{raridadeBean.entidades}">
+			<p:column headerText="Id">
+				<h:outputText value="#{raridad.id}" />
+			</p:column>
+			<p:column headerText="Nome">
+				<h:outputText value="#{raridad.nome}" />
+			</p:column>
+			<p:column headerText="Jogo">
+				<h:outputText value="#{raridad.jogo}" />
+			</p:column>
+			<p:column headerText="Remover">
 				<p:commandButton action="#{raridadeBean.remove(raridad)}"
 					ajax="false" value="Remover" />
-			</h:form>
-		</p:column>
-		<p:column headerText="Editar">
-			<h:form>
+			</p:column>
+			<p:column headerText="Editar">
 				<p:commandButton action="#{raridadeBean.editar(raridad.id)}"
 					ajax="false" value="Editar" />
-			</h:form>
-		</p:column>
-
-	</p:dataTable>
+			</p:column>
+		</p:dataTable>
+	</form>
 </h:body>
 </HTML>

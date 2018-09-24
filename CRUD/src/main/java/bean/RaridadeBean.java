@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import entity.Raridade;
+import service.JogService;
 import service.RaridadService;
 
 @ViewScoped
@@ -16,6 +17,11 @@ public class RaridadeBean implements Serializable {
 
 	@Inject
 	private RaridadService service;
+	
+	@Inject
+	private JogService jogService;
+	
+	private Long jogoId;
 
 	protected Raridade entidade;
 
@@ -52,6 +58,7 @@ public class RaridadeBean implements Serializable {
 	}
 
 	public void save() {
+		entidade.setJogo(jogService.getByID(jogoId));
 		getService().save(entidade);
 		limpar();
 	}
@@ -72,6 +79,18 @@ public class RaridadeBean implements Serializable {
 
 	public RaridadService getService() {
 		return service;
+	}
+	
+	public Long getJogoId() {
+		return jogoId;
+	}
+	
+	public void setJogoId(Long jogoId) {
+		this.jogoId = jogoId;
+	}
+	
+	public JogService getJogService() {
+		return jogService;
 	}
 
 }

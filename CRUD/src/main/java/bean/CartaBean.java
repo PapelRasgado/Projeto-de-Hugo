@@ -10,6 +10,10 @@ import javax.inject.Named;
 
 import entity.Carta;
 import service.CardService;
+import service.ConjuntoService;
+import service.JogService;
+import service.RaridadService;
+import service.UsuService;
 
 @ViewScoped
 @Named
@@ -17,6 +21,26 @@ public class CartaBean implements Serializable {
 
 	@Inject
 	private CardService service;
+	
+	@Inject
+	private JogService jogService;
+	
+	private Long jogoId;
+	
+	@Inject
+	private RaridadService rarService;
+	
+	private Long raridadeId;
+	
+	@Inject
+	private ConjuntoService conjService;
+	
+	private Long conjId;
+	
+	@Inject
+	private UsuService usuService;
+	
+	private Long usuId;
 
 	protected Carta entidade;
 
@@ -53,6 +77,10 @@ public class CartaBean implements Serializable {
 	}
 
 	public void save() {
+		entidade.setIdUsuarioVende(usuService.getByID(usuId));
+		entidade.setJogo(jogService.getByID(jogoId));
+		entidade.setRaridade(rarService.getByID(raridadeId));
+		entidade.setConjunto(conjService.getByID(conjId));
 		getService().save(entidade);
 		limpar();
 	}
@@ -74,6 +102,52 @@ public class CartaBean implements Serializable {
 	public CardService getService() {
 		return service;
 	}
+
+	public Long getJogoId() {
+		return jogoId;
+	}
+
+	public void setJogoId(Long jogoId) {
+		this.jogoId = jogoId;
+	}
+
+	public Long getRaridadeId() {
+		return raridadeId;
+	}
+
+	public void setRaridadeId(Long raridadeId) {
+		this.raridadeId = raridadeId;
+	}
+
+	public Long getConjId() {
+		return conjId;
+	}
+
+	public void setConjId(Long conjId) {
+		this.conjId = conjId;
+	}
+
+	public JogService getJogService() {
+		return jogService;
+	}
+
+	public RaridadService getRarService() {
+		return rarService;
+	}
+
+	public ConjuntoService getConjService() {
+		return conjService;
+	}
+	
+	public Long getUsuId() {
+		return usuId;
+	}
+	
+	public void setUsuId(Long usuId) {
+		this.usuId = usuId;
+	}
+	
+	
 
 }
 

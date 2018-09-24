@@ -10,6 +10,7 @@ import javax.inject.Named;
 
 import entity.Conjunto;
 import service.ConjuntoService;
+import service.JogService;
 
 @ViewScoped
 @Named
@@ -17,6 +18,11 @@ public class ConjuntoBean implements Serializable {
 
 	@Inject
 	private ConjuntoService service;
+	
+	@Inject
+	private JogService jogService;
+	
+	private Long jogoId;
 
 	protected Conjunto entidade;
 
@@ -53,6 +59,7 @@ public class ConjuntoBean implements Serializable {
 	}
 
 	public void save() {
+		entidade.setJogo(jogService.getByID(jogoId));
 		getService().save(entidade);
 		limpar();
 	}
@@ -74,7 +81,19 @@ public class ConjuntoBean implements Serializable {
 	public ConjuntoService getService() {
 		return service;
 	}
-
+	
+	public Long getJogoId() {
+		return jogoId;
+	}
+	
+	public void setJogoId(Long jogoId) {
+		this.jogoId = jogoId;
+	}
+	
+	public JogService getJogService() {
+		return jogService;
+	}	
+	
 }
 
 //@ManagedBean
