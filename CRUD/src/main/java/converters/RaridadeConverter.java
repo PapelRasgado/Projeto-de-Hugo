@@ -6,8 +6,8 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
-import bean.Identificavel;
 import dao.RaridadDAO;
+import entity.Identificavel;
 import entity.Raridade;
 
 @FacesConverter(forClass=Raridade.class)

@@ -9,7 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
-import bean.Identificavel;
+import entity.Identificavel;
 
 @ApplicationScoped
 public abstract class DAO<E extends Identificavel> {

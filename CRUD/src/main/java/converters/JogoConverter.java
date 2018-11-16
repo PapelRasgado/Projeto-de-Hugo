@@ -6,8 +6,8 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
-import bean.Identificavel;
 import dao.JogDAO;
+import entity.Identificavel;
 import entity.Jogo;
 
 @FacesConverter(forClass=Jogo.class)

@@ -1,8 +1,6 @@
 package entity;
 import javax.persistence.*;
 
-import bean.Identificavel;
-
 @Entity
 public class Carta implements Identificavel {
 

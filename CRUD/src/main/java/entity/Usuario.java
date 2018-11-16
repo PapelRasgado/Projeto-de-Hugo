@@ -1,8 +1,6 @@
 package entity;
 import javax.persistence.*;
 
-import bean.Identificavel;
-
 @Entity
 public class Usuario implements Identificavel {
 	
@@ -14,9 +12,11 @@ public class Usuario implements Identificavel {
 	
 	private String email;
 	
-	private String senha;
+	private byte[] senha;
 	
 	private String nick;
+	
+	private String grupo;
 
 	public Long getId() {
 		return id;
@@ -34,11 +34,11 @@ public class Usuario implements Identificavel {
 		this.email = email;
 	}
 
-	public String getSenha() {
+	public byte[] getSenha() {
 		return senha;
 	}
 
-	public void setSenha(String senha) {
+	public void setSenha(byte[] senha) {
 		this.senha = senha;
 	}
 
@@ -49,13 +49,22 @@ public class Usuario implements Identificavel {
 	public void setNick(String nick) {
 		this.nick = nick;
 	}
+	
+	public String getGrupo() {
+		return grupo;
+	}
+	
+	public void setGrupo(String grupo) {
+		this.grupo = grupo;
+	}
 
-	public Usuario(Long id, String email, String senha, String nick) {
+	public Usuario(Long id, String email, byte[] senha, String nick, String grupo) {
 		super();
 		this.id = id;
 		this.email = email;
 		this.senha = senha;
 		this.nick = nick;
+		this.grupo = grupo;
 	}
 	
 	public Usuario() {
@@ -63,7 +72,7 @@ public class Usuario implements Identificavel {
 	}
 	
 	public Usuario clone() {
-		return new Usuario(id, email, senha, nick);
+		return new Usuario(id, email, senha, nick, grupo);
 	}
 	
 }

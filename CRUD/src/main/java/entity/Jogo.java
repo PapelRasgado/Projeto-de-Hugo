@@ -3,8 +3,6 @@ import java.util.Set;
 
 import javax.persistence.*;
 
-import bean.Identificavel;
-
 
 @Entity
 public class Jogo implements Identificavel {

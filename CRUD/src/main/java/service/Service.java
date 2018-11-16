@@ -2,7 +2,7 @@ package service;
 
 import java.util.List;
 
-import bean.Identificavel;
+import entity.Identificavel;
 
 public interface Service<E extends Identificavel> {
 

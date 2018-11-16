@@ -6,9 +6,9 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
-import bean.Identificavel;
 import dao.ConjuntDAO;
 import entity.Conjunto;
+import entity.Identificavel;
 
 
 @FacesConverter(forClass=Conjunto.class)

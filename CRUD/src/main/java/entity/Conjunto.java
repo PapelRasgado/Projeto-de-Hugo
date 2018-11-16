@@ -11,8 +11,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
-import bean.Identificavel;
-
 @Entity
 public class Conjunto implements Identificavel  {
 

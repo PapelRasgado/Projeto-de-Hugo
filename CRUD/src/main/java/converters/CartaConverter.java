@@ -6,9 +6,9 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
-import bean.Identificavel;
 import dao.CardDAO;
 import entity.Carta;
+import entity.Identificavel;
 
 @FacesConverter(forClass=Carta.class)
 public class CartaConverter implements Converter{
