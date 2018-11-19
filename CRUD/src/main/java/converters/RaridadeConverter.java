@@ -23,7 +23,7 @@ public class RaridadeConverter implements Converter{
 
 	@Override
 	public String getAsString(FacesContext arg0, UIComponent arg1, Object entidade) {
-		return ((Identificavel)entidade).getId().toString();
+		return entidade.toString();
 	}
 
 	

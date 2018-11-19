@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <persistence version="2.0"
 	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
    http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+=======
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+>>>>>>> branch 'master' of https://github.com/PapelRasgado/Projeto-de-Hugo.git
 
+<<<<<<< HEAD
 	<persistence-unit name="piru" transaction-type="RESOURCE_LOCAL">
+=======
+   <persistence-unit name="piru" transaction-type="RESOURCE_LOCAL">
+   
+   <class>entity.Jogo</class>
+   <class>entity.Carta</class>
+   <class>entity.Conjunto</class>
+   <class>entity.Raridade</class>
+   <class>entity.Usuario</class>
+      <properties>
+         <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/Mercado"/>
+         <property name="javax.persistence.jdbc.user" value="postgres"/>
+         <property name="javax.persistence.jdbc.password" value="postgres"/>
+         <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+         <property name="hibernate.hbm2ddl.auto" value="update"/>
+         <property name="hibernate.show_sql" value="true"/>
+      </properties>
+>>>>>>> branch 'master' of https://github.com/PapelRasgado/Projeto-de-Hugo.git
 
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<non-jta-data-source>java:/escolaDS</non-jta-data-source>

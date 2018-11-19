@@ -1,0 +1,84 @@
+<HTML xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="estilo.css" />
+</h:head>
+<h:body style="margin-left: 20px;">
+
+	<p:tabMenu activeIndex="#{param.i}">
+		<p:menuitem value="Jogo" outcome="/cadastro_jogo" icon="fa fa-gamepad">
+			<f:param name="i" value="0" />
+		</p:menuitem>
+		<p:menuitem value="Conjunto" outcome="/cadastro_conjunto"
+			icon="fa fa-tasks">
+			<f:param name="i" value="1" />
+		</p:menuitem>
+		<p:menuitem value="Raridade" outcome="/cadastro_raridade"
+			icon="fa fa-diamond">
+			<f:param name="i" value="2" />
+		</p:menuitem>
+		<p:menuitem value="Carta" outcome="/cadastro_carta"
+			icon="fa fa-envelope">
+			<f:param name="i" value="3" />
+		</p:menuitem>
+		<p:menuitem value="Usuario" outcome="/cadastro_usuario"
+			icon="fa fa-user">
+			<f:param name="i" value="4" />
+		</p:menuitem>
+	</p:tabMenu>
+	<h:form>
+	<p:panelGrid>
+		<h3 class="titulo" >Adicionar jogo:</h3>
+			<div class="ui-g">
+				<div class="ui-g-12">
+					<div class="ui-inputgroup">
+						<p:panelGrid columns="2">
+							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Nome:</span>
+							<span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+							<h:inputText id="nome" value="#{jogoBean.entidade.nome}" />
+						</p:panelGrid>
+					</div>
+				</div>
+				<div class="ui-g-12">
+					<div class="ui-inputgroup">
+						<p:panelGrid columns="2">
+							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Descrição:</span>
+							<span class="ui-inputgroup-addon"><i class="fa fa-comment"></i></span>
+							<h:inputText id="descricao" value="#{jogoBean.entidade.descricao}" />
+						</p:panelGrid>
+					</div>
+				</div>
+			</div>
+			<p:commandButton class="btn" ajax="false" value="Salvar"
+				actionListener="#{jogoBean.save()}" />
+			<p:commandButton class="btn" ajax="false" value="Cancelar"
+				action="#{jogoBean.limpar()}" />
+	</p:panelGrid>
+
+	<p:dataTable id="dataTableCarta" var="jog" value="#{jogoBean.entidades}">
+		<p:column headerText="Id">
+			<h:outputText value="#{jog.id}" />
+		</p:column>
+		<p:column headerText="Nome">
+			<h:outputText value="#{jog.nome}" />
+		</p:column>
+		<p:column headerText="Descrição">
+			<h:outputText value="#{jog.descricao}" />
+		</p:column>
+		<p:column headerText="Remover">
+				<p:commandButton action="#{jogoBean.remove(jog)}" ajax="false"
+					value="Remover" />
+		</p:column>
+		<p:column headerText="Editar">
+				<p:commandButton action="#{jogoBean.editar(jog.id)}" ajax="false"
+					value="Editar" />
+		</p:column>
+
+	</p:dataTable>
+	</h:form>
+</h:body>
+</HTML>
