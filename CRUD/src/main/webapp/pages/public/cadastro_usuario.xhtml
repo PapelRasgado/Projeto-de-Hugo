@@ -9,29 +9,8 @@
 </h:head>
 <h:body style="margin-left: 20px;">
 
-	<p:tabMenu activeIndex="#{param.i}">
-		<p:menuitem value="Jogo" outcome="/cadastro_jogo" icon="fa fa-gamepad">
-			<f:param name="i" value="0" />
-		</p:menuitem>
-		<p:menuitem value="Conjunto" outcome="/cadastro_conjunto"
-			icon="fa fa-tasks">
-			<f:param name="i" value="1" />
-		</p:menuitem>
-		<p:menuitem value="Raridade" outcome="/cadastro_raridade"
-			icon="fa fa-diamond">
-			<f:param name="i" value="2" />
-		</p:menuitem>
-		<p:menuitem value="Carta" outcome="/cadastro_carta"
-			icon="fa fa-envelope">
-			<f:param name="i" value="3" />
-		</p:menuitem>
-		<p:menuitem value="Usuario" outcome="/cadastro_usuario"
-			icon="fa fa-user">
-			<f:param name="i" value="4" />
-		</p:menuitem>
-	</p:tabMenu>
 	<p:panelGrid>
-		<h3 class="titulo">Adicionar usuario:</h3>
+		<h3>Adicionar usuario:</h3>
 		<h:form>
 			<div class="ui-g">
 				<div class="ui-g-12">
@@ -49,8 +28,8 @@
 						<p:panelGrid columns="2">
 							<span class="ui-inputgroup-addon" style="min-width: 4.5em;">Senha:</span>
 							<span class="ui-inputgroup-addon"><i class="fa fa-key"></i></span>
-							<h:inputText type="password" id="senha"
-								value="#{usuarioBean.entidade.senha}" />
+							<p:password id="senha" feedback="true"
+								value="#{usuarioBean.senha}" />
 						</p:panelGrid>
 					</div>
 				</div>
@@ -64,10 +43,12 @@
 					</div>
 				</div>
 			</div>
-			<p:commandButton class="btn" ajax="false" value="Salvar"
-				actionListener="#{usuarioBean.save()}"/>
-			<p:commandButton class="btn" ajax="false" value="Cancelar"
-				action="#{usuarioBean.limpar()}" />
+			<p>
+					<p:commandButton action="#{usuarioBean.save()}" ajax="false"
+						value="Salvar"
+						style=" border-top-left-radius: 8px; border-bottom-left-radius: 8px; border-top-right-radius: 
+				8px; border-bottom-right-radius: 8px" />
+			</p>
 		</h:form>
 	</p:panelGrid>
 
@@ -93,7 +74,7 @@
 		</p:column>
 		<p:column headerText="Editar">
 			<h:form>
-				<p:commandButton action="#{usuarioBean.editar(usu.id)}" ajax="false"
+				<p:commandButton action="#{usuarioBean.editar(usu)}" ajax="false"
 					value="Editar" />
 			</h:form>
 		</p:column>
